@@ -1,3 +1,18 @@
 .header{
-    text-align: center;
+    color:red;
+}
+
+.app-bar{
+    background-color: green;
+}
+
+.menu{
+    display: flex;
+    /* flex-direction: row; */
+    background-color: green;
+    justify-content: flex-end;
+}
+
+.logo {
+    margin: 120px;
 }

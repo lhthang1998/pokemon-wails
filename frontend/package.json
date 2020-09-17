@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
+    "react-infinite-scroller": "^1.2.4",
     "react-modal": "3.11.2",
     "wails-react-scripts": "3.0.1-2"
   },
