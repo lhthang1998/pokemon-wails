@@ -8,7 +8,7 @@ import Pagination from '../pagination/Pagination'
 
 const Content: FunctionComponent = () => {
 
-  const ITEM_PER_PAGE = 10;
+  const ITEM_PER_PAGE = 15;
   const url = 'https://pokeapi.co/api/v2/pokemon?limit='+ITEM_PER_PAGE;
 
   const [pokemons, setPokemons] = useState([]);
@@ -50,7 +50,9 @@ const Content: FunctionComponent = () => {
         {loading && <div style={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}><Spinner animation="border" /></div>}
         {!loading &&
           <>
-            <PokemonList pokemons={pokemons} loading={loading} itemPerRow='2'></PokemonList>
+            <div className="row">
+              <PokemonList pokemons={pokemons} loading={loading} itemPerRow='2'></PokemonList>
+            </div>
             <Pagination next={nextUrl ? goToNextPage : null} previous={prevUrl ? goToPrevPage : null}></Pagination>
           </>}
       </div>

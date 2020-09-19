@@ -24,7 +24,9 @@ const PokemonList: FunctionComponent = ({ pokemons, loading, itemPerRow }) => {
     return (
         <>
            {pokemons.map(pkm=>(
-            <PokemonCard pokemon={pkm}></PokemonCard>
+            <div  key={pkm.id}  className="col col-xs-6 col-md-4">
+                <PokemonCard pokemon={pkm}></PokemonCard>
+            </div>
         ))} 
         </>
     );

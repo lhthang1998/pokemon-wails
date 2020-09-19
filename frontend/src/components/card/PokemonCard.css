@@ -1,8 +1,14 @@
 .myCard{
     display: flex;
     flex-direction: row;
-    color: red;
     padding: 5px;
     margin: 2px;
     border: 1px solid green;
+}
+
+.headerCard{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: green; */
 }
