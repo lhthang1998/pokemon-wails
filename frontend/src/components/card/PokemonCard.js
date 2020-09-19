@@ -1,26 +1,25 @@
 import React, { FunctionComponent } from 'react'
+import { Card } from 'react-bootstrap'
 import './PokemonCard.css'
 
 const PokemonCard: FunctionComponent = ({ pokemon }) => {
     return (
-        <div className="myCard">
-            <div className="row">
-                <div className="col col-xs-4">
-                    <img src={pokemon.image} width="100px" height="100px" style={{ padding: '5px' }}></img>
-                </div>
-                <div className="col col-xs-7" >
-                    <div style={{ display: 'flex', flexDirection: 'column' }}>
-                        <div className="headerCard">
-                            <strong >{pokemon.name.toUpperCase()}</strong>
-                            <strong >#{pokemon.id}</strong>
-                        </div>
-                        <div>SSSSSSSSSSSSSSSSSSSSS</div>
+        <Card className="myCard">
+            <Card.Header className="headerCard">
+                <strong>{pokemon.name.toUpperCase()}</strong>
+                <strong>#{pokemon.id}</strong>
+            </Card.Header>
+            <Card.Body>
+                <div className="row">
+                    <div className="col col-xs-4">
+                        <img src={pokemon.image} width='100px' height='100px'></img>
+                    </div>
+                    <div className="col col-xs-8">
+
                     </div>
                 </div>
-            </div>
-
-
-        </div>
+            </Card.Body>
+        </Card>
     );
 }
 

@@ -1,14 +1,11 @@
 .myCard{
-    display: flex;
-    flex-direction: row;
     padding: 5px;
     margin: 2px;
-    border: 1px solid green;
 }
 
 .headerCard{
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
-    /* background-color: green; */
+    background-color: green;
 }
