@@ -1,29 +1,61 @@
-
+import {Spinner} from 'react-bootstrap'
 import React, { FunctionComponent, useState, useEffect } from 'react'
 import './Content.css'
-import { Navbar } from 'react-bootstrap';
-import InfiniteScroll from 'react-infinite-scroller';
+import axios from 'axios'
+import { Waypoint } from 'react-waypoint'
+import PokemonList from '../pokemon/Pokemon'
+import Pagination from '../pagination/Pagination'
 
 const Content: FunctionComponent = () => {
-    const [arr, setMore] = useState([]);
-    const loadFunc = function () {
-        let newArr =1;
-        setMore(arr=>[...arr,newArr]);
-        console.log(arr);
-    };
+
+  const ITEM_PER_PAGE = 10;
+  const url = 'https://pokeapi.co/api/v2/pokemon?limit='+ITEM_PER_PAGE;
+
+  const [pokemons, setPokemons] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const [currentUrl, setCurrentUrl] = useState(url);
+  const [prevUrl, setPrevUrl] = useState();
+  const [nextUrl, setNextUrl] = useState();
+
+  useEffect(() => {
+    loadPokemon();
+  }, [currentUrl])
 
 
-    return (
-        <div className="content">
-            <InfiniteScroll
-                pageStart={0}
-                loadMore={loadFunc}
-                hasMore={true}
-            >
-                <div style={{ width: '50px', height: '50px', backgroundColor: 'yellow', padding: '5px' }}></div>
-            </InfiniteScroll>
-        </div>
+  const loadPokemon = function () {
+    let cancel;
+    setLoading(true);
+    window.backend.fetchPokemons(currentUrl).then(
+      res=>{
+        setNextUrl(res.next);
+        setPrevUrl(res.previous);
+    
+        setPokemons(res['pokemons']);
+        setLoading(false);
+      }
     );
+    return ()=>cancel();
+  }
+  function goToNextPage() {
+    setCurrentUrl(nextUrl);
+  }
+
+  function goToPrevPage() {
+    setCurrentUrl(prevUrl);
+  }
+  return (
+    <>
+      <div className="content">
+        {loading && <Spinner animation="border" />}
+        {/* {!loading &&
+          <>
+            <PokemonList pokemons={pokemons} loading={loading} itemPerRow='2'></PokemonList>
+            <Pagination next={nextUrl ? goToNextPage : null} previous={prevUrl ? goToPrevPage : null}></Pagination>
+          </>} */}
+      </div>
+    </>
+  );
 }
 
 export default Content

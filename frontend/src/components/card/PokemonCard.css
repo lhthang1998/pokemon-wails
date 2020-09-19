@@ -1,0 +1,6 @@
+.myCard{
+    display: flex;
+    flex-direction: row;
+    color: red;
+    padding: 5px;
+}
