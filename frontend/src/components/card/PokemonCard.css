@@ -3,4 +3,6 @@
     flex-direction: row;
     color: red;
     padding: 5px;
+    margin: 2px;
+    border: 1px solid green;
 }
