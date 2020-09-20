@@ -4,3 +4,9 @@
     flex-direction: column;
     padding-top: 15px;
 }
+
+.listPokemon{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import PokemonCard from '../card/PokemonCard';
 
-const PokemonList: FunctionComponent = ({ pokemons, loading, itemPerRow }) => {
+const PokemonList: FunctionComponent = ({ pokemons, loading }) => {
 
     console.log(pokemons);
     // const pkms = [];
@@ -24,7 +24,7 @@ const PokemonList: FunctionComponent = ({ pokemons, loading, itemPerRow }) => {
     return (
         <>
            {pokemons.map(pkm=>(
-            <div  key={pkm.id}  className="col col-xs-6 col-md-4">
+            <div  key={pkm.id}  className="col col-md-4">
                 <PokemonCard pokemon={pkm}></PokemonCard>
             </div>
         ))} 
