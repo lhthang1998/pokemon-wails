@@ -4,10 +4,9 @@
 
 
 .tile{
-    text-align: center;
+    /* text-align: center; */
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 5px;
-    color:inherit;
-    font-size: 12pt;
+    font-size: 10pt;
 }

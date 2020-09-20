@@ -9,7 +9,7 @@ const Header: FunctionComponent = () => {
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <img className="logo" src="pokemon.png" height="60px" className="navbar-brand"></img>
+                        <img className="logo" src="pokemon.png" height="70px" className="navbar-brand"></img>
                     </div>
                 </div>
             </nav>

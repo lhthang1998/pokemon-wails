@@ -8,62 +8,71 @@ const TypeCard: FunctionComponent = ({ pokemon, type }) => {
 
     var bgColor = 'red';
     var c = 'white';
+    var bg = '';
 
     const id = pokemon.id + type.name;
-    if (type.name === 'grass' || type.name === 'bug') {
-        bgColor = '#91e600';
-        c = 'black';
+    if (type.name === 'grass') {
+        bgColor = '#9bcc50';
+        c = '#212121';
+    }
+    if (type.name === 'bug'){
+        bgColor = '#009900';
     }
     if (type.name === 'fire') {
-        bgColor = 'red';
+        bgColor = '#fd7d24';
     }
     if (type.name === 'ghost') {
-        bgColor = 'red';
+        bgColor = '#7b62a3';
     }
     if (type.name === 'water') {
-        bgColor = '#12baf4';
+        bgColor = '#4592c4';
     }
     if (type.name === 'flying') {
+        bg = 'linear-gradient(180deg, #3dc7ef 50%, #bdb9b8 50%)';
         bgColor = '#b3b3b3';
-        c = 'black';
+        c = '#212121';
     }
     if (type.name === 'poison') {
-        bgColor = '#cc33ff';
+        bgColor = '#b97fc9';
     }
     if (type.name === 'normal') {
-        bgColor = '#8c8c8c';
+        bgColor = '#a4acaf';
     }
     if (type.name === 'electric') {
-        bgColor = '#e6e600';
-        c = 'black';
+        bgColor = '#eed535';
+        c = '#212121';
     }
     if (type.name === 'ground') {
-        bgColor = '#b38f00';
+        bg= 'linear-gradient(180deg, #f7de3f 50%, #ab9842 50%)';
+        bgColor = '#f7de3f';
+        c = '#212121';
     }
     if (type.name === 'fighting') {
-        bgColor = '#e67300';
+        bgColor = '#d56723';
     }
     if (type.name === 'fairy') {
-        bgColor = '#ff4da6';
+        bgColor = '#fdb9e9';
+        c = '#212121';
     }
     if (type.name === 'psychic') {
-        bgColor = '#ff1a75';
+        bgColor = '#f366b9';
     }
     if (type.name === 'rock') {
-        bgColor = '#cccc00';
+        bgColor = '#a38c21';
     }
     if (type.name === 'steel') {
-        bgColor = '#c2c2a3';
-        c = 'black';
+        bgColor = '#9eb7b8';
+        c = '#212121';
     }
     if (type.name === 'dragon') {
-        bgColor = '#cccc00';
+        bgColor = '#53a4cf';
+        bg= 'linear-gradient(180deg, #53a4cf 50%, #f16e57 50%)';
     }
     if (type.name === 'ice') {
-        bgColor = '#cccc00';
+        bgColor = '#51c4e7';
     }
     if (type.name === 'dark') {
-        bgColor = '#cccc00';
+        bgColor = '#707070';
     }
     if (type.name === 'unknown') {
         bgColor = '#cccc00';
@@ -73,7 +82,8 @@ const TypeCard: FunctionComponent = ({ pokemon, type }) => {
     }
     return (
         <div key={id} className="typeCard">
-            <small className="tile" style={{ backgroundColor: bgColor, color: c }}>{type.name}</small>
+            {(type.name!=='ground' && type.name!=='flying' && type.name!=='dragon') &&<small className="tile" style={{ backgroundColor: bgColor, color: c }}>{type.name}</small>}
+            {(type.name==='ground' || type.name==='flying' || type.name==='dragon') &&<small className="tile" style={{ backgroundColor: bgColor, color: c, background:bg}}>{type.name}</small>}
         </div>
     );
 }

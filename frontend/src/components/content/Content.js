@@ -48,7 +48,7 @@ const Content: FunctionComponent = () => {
   return (
     <>
       <div className="content">
-        {loading && <div style={{position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)'}}><Spinner animation="border" /></div>}
+        {loading && <div className="spin"><Spinner animation="border" /></div>}
         {!loading &&
           <>
             <div className="listPokemon">
