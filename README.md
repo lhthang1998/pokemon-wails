@@ -1,7 +1,6 @@
 # :mage: golang-wails
 Use wails to build a desktop app
-> This is a desktop app using Golang and ReactJS
-> Project is used for learning ReactJS
+> A desktop app using Golang and ReactJS. And this project is used for learning ReactJS
 
 ## Table of contents
 * [Technologies](#technologies)
