@@ -6,6 +6,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/wailsapp/wails"
 	"net/http"
+	"sort"
 )
 
 func basic() string {
@@ -13,7 +14,6 @@ func basic() string {
 }
 
 func fetchPokemons(url string) PokemonList {
-	logrus.Println(url)
 
 	pkms := PokemonList{
 		Error:    nil,
@@ -43,6 +43,25 @@ func fetchPokemons(url string) PokemonList {
 		}
 		pkms.Pokemons = append(pkms.Pokemons, pokemon)
 	}
+
+	logrus.Println(pkms.Pokemons)
+	d := make(chan Pokemon)
+	for i, _ := range pkms.Pokemons {
+		go func(i int) {
+			pkm := GetDetail(pkms.Pokemons[i])
+			d <- *pkm
+		}(i)
+	}
+
+	var details []Pokemon
+	for i := 0; i < len(pkms.Pokemons); i++ {
+		details = append(details, <-d)
+	}
+
+	sort.SliceStable(details, func(i, j int) bool {
+		return details[i].Id < details[j].Id
+	})
+	pkms.Pokemons = details
 	return pkms
 }
 

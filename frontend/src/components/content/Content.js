@@ -5,6 +5,7 @@ import axios from 'axios'
 import { Waypoint } from 'react-waypoint'
 import PokemonList from '../pokemon/Pokemon'
 import Pagination from '../pagination/Pagination'
+import Types from '../../shared/Type'
 
 const Content: FunctionComponent = () => {
 
